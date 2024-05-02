@@ -8,6 +8,7 @@
     "number":"node --watch ./js/duomenys/number.js",
     "bool":"node --watch ./js/duomenys/boolean.js",
     "boolHM":"node --watch ./js/duomenys/booleanHM.js",
+    "function":"node --watch ./js/duomenys/function.js",
     "index":"node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
