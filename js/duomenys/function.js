@@ -58,3 +58,16 @@ function price(value){
 }
 console.log(price(99.99))
 
+let number = 0
+console.log(number)
+function add(){
+     return number ++
+}
+add()
+console.log(number)
+add()
+add()
+add()
+add()
+add()
+console.log(number)
