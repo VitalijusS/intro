@@ -63,20 +63,21 @@ console.log(number)
 function add(){
      return number ++
 }
-add()
-console.log(number)
-add()
-add()
-add()
-add()
-add()
+add();
+console.log(number);
+add();
+add();
+add();
+add();
+add();
 
 
 console.clear()
 function isPangram(string){
     const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
     for (let i = 0; i < alphabet.length; i++){
-        if (string.includes(alphabet[i]) == false){
+        const stringLower = string.toLowerCase();
+        if (stringLower.includes(alphabet[i]) == false){
             return false           
         }
     }
@@ -84,13 +85,34 @@ function isPangram(string){
 }
 
 
-console.log(isPangram("a"))
-console.log()
-console.log(isPangram("1"))
-console.log()
-console.log(isPangram("qwertyuioplkjhgfdsazxcvbnm"))
-console.log()
-console.log(isPangram("The quick brown fox jumps over the lazy dog."))
-console.log()
-console.log(isPangram("asd321"))
+console.log(isPangram("a"));
+console.log();
+console.log(isPangram("1"));
+console.log();
+console.log(isPangram("qwertyuioplkjhgfdsazxcvbnm"));
+console.log();
+console.log(isPangram("The quick brown fox jumps over the lazy dog."));
+console.log();
+console.log(isPangram("asd321"));
+console.log(isPangram('Cwm fjord bank glyphs vext quiz'));
+
+console.clear();
+
+
+function squareDigits(num){
+    let answer = "";
+    const string = num.toString();
+
+    for (let i = 0; i < string.length; i++){
+        let singleNumber = parseInt(string.charAt(i))**2;
+        answer += singleNumber.toString();
+    }
+    return answer
+}
+console.log(squareDigits(123456));
+console.log(squareDigits(123));
+console.log(squareDigits(3212));
+
+
+
 
