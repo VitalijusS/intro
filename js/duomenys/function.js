@@ -179,13 +179,13 @@ console.log(markHigherBMI2)
 console.log(mark2BMI, john2BMI)
 
 if (mark1BMI > john1BMI){
-    console.log(`Mark's BMI ${mark1BMI.toFixed(1)} is higher than John's ${john1BMI.toFixed(1)}!`)
+    console.log(`Mark's BMI (${mark1BMI.toFixed(1)}) is higher than John's (${john1BMI.toFixed(1)})!`)
 }else{
-    console.log(`John's ${john1BMI.toFixed(1)} is higher than Mark's BMI ${mark1BMI.toFixed(1)}!`)
+    console.log(`John's (${john1BMI.toFixed(1)}) is higher than Mark's BMI (${mark1BMI.toFixed(1)})!`)
 }
 
 if (mark2BMI > john2BMI){
-    console.log(`Mark's BMI ${mark2BMI.toFixed(1)} is higher than John's ${john2BMI.toFixed(1)}!`)
+    console.log(`Mark's BMI (${mark2BMI.toFixed(1)}) is higher than John's (${john2BMI.toFixed(1)})!`)
 }else{
-    console.log(`John's ${john2BMI.toFixed(1)} is higher than Mark's BMI ${mark2BMI.toFixed(1)}!`)
+    console.log(`John's (${john2BMI.toFixed(1)}) is higher than Mark's BMI (${mark2BMI.toFixed(1)})!`)
 }
