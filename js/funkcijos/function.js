@@ -174,9 +174,7 @@ const markHigherBMI = mark1BMI > john1BMI;
 const markHigherBMI2 = mark2BMI > john2BMI;
 
 console.log(markHigherBMI)
-console.log(mark1BMI, john1BMI)
 console.log(markHigherBMI2)
-console.log(mark2BMI, john2BMI)
 
 if (mark1BMI > john1BMI){
     console.log(`Mark's BMI (${mark1BMI.toFixed(1)}) is higher than John's (${john1BMI.toFixed(1)})!`)

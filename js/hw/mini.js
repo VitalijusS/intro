@@ -40,11 +40,11 @@ console.log(kint12[0]-kint12[1]+kint12[2]-kint12[3]+kint12[4]);
 console.log(kint22[0]-kint22[1]+kint22[2]-kint22[3]+kint22[4]);
 console.log(kint32[0]-kint32[1]+kint32[2]-kint32[3]+kint32[4]);
 //4
-const sujungti = kint13[0]+ ', '+ kint13[1] +', '+kint13[2]+ ', '+kint13[3]+ ', '+kint13[4]
+const sujungti = kint13[4]+ ', '+ kint13[3] +', '+kint13[2]+ ', '+kint13[1]+ ', '+kint13[0]
 console.log(sujungti)
-const sujungti2 = kint23[0]+ ', '+ kint23[1] +', '+kint23[2]+ ', '+kint23[3]+ ', '+kint23[4]
+const sujungti2 = kint23[4]+ ', '+ kint23[3] +', '+kint23[2]+ ', '+kint23[1]+ ', '+kint23[0]
 console.log(sujungti2)
-const sujungti3 = kint33[0]+ ', '+ kint33[1] +', '+kint33[2]+ ', '+kint33[3]+ ', '+kint33[4]
+const sujungti3 = kint33[4]+ ', '+ kint33[3] +', '+kint33[2]+ ', '+kint33[1]+ ', '+kint33[0]
 console.log(sujungti3)
 
 //Kintamųjų palyginimas
