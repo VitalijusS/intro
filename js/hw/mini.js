@@ -34,17 +34,20 @@ console.log(kint33);
 //1
 console.log(kint1 + kint2 + kint3);
 //2
-console.log(kint11, ' ', kint21, ' ', kint31, ' ');
+console.log(kint11, ' ', kint21, ' ', kint31);
 //3
 console.log(kint12[0] - kint12[1] + kint12[2] - kint12[3] + kint12[4]);
 console.log(kint22[0] - kint22[1] + kint22[2] - kint22[3] + kint22[4]);
 console.log(kint32[0] - kint32[1] + kint32[2] - kint32[3] + kint32[4]);
 //4
-const sujungti = kint13[4] + ', ' + kint13[3] + ', ' + kint13[2] + ', ' + kint13[1] + ', ' + kint13[0]
+const sujungti = kint13[4] + ', ' + kint13[3] + ', ' + kint13[2] + ', '
+    + kint13[1] + ', ' + kint13[0];
 console.log(sujungti)
-const sujungti2 = kint23[4] + ', ' + kint23[3] + ', ' + kint23[2] + ', ' + kint23[1] + ', ' + kint23[0]
+const sujungti2 = kint23[4] + ', ' + kint23[3] + ', ' + kint23[2] + ', '
+    + kint23[1] + ', ' + kint23[0];
 console.log(sujungti2)
-const sujungti3 = kint33[4] + ', ' + kint33[3] + ', ' + kint33[2] + ', ' + kint33[1] + ', ' + kint33[0]
+const sujungti3 = kint33[4] + ', ' + kint33[3] + ', ' + kint33[2] + ', '
+    + kint33[1] + ', ' + kint33[0];
 console.log(sujungti3)
 
 //Kintamųjų palyginimas
@@ -203,14 +206,14 @@ console.log("------------------------------------------")
 let dalIs3 = 0;
 let dalIs5 = 0;
 let dalIs7 = 0;
-for (i = 0; i < 11; i++) {
-    if (i % 3 == 0) {
+for (i = 0; i <= 11; i++) {
+    if (i % 3 === 0) {
         dalIs3++
     }
-    if (i % 5 == 0) {
+    if (i % 5 === 0) {
         dalIs5++
     }
-    if (i % 7 == 0) {
+    if (i % 7 === 0) {
         dalIs7++
     }
 }
@@ -223,40 +226,40 @@ console.log("------------------------------------------")
 dalIs3 = 0;
 dalIs5 = 0;
 dalIs7 = 0;
-for (i = 8; i < 31; i++) {
-    if (i % 3 == 0) {
+for (i = 8; i <= 31; i++) {
+    if (i % 3 === 0) {
         dalIs3++
     }
-    if (i % 5 == 0) {
+    if (i % 5 === 0) {
         dalIs5++
     }
-    if (i % 7 == 0) {
+    if (i % 7 === 0) {
         dalIs7++
     }
 }
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 3 yra ${dalIs3} vienetai.`)
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 5 yra ${dalIs5} vienetai.`)
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 7 yra ${dalIs7} vienetai.`)
+console.log(`Skaičių intervale tarp 8 ir 31, besidalijančių be liekanos iš 3 yra ${dalIs3} vienetai.`)
+console.log(`Skaičių intervale tarp 8 ir 31, besidalijančių be liekanos iš 5 yra ${dalIs5} vienetai.`)
+console.log(`Skaičių intervale tarp 8 ir 31, besidalijančių be liekanos iš 7 yra ${dalIs7} vienetai.`)
 
 console.log("------------------------------------------")
 
 dalIs3 = 0;
 dalIs5 = 0;
 dalIs7 = 0;
-for (i = -18; i < 18; i++) {
-    if (i % 3 == 0) {
+for (i = -18; i <= 18; i++) {
+    if (i % 3 === 0) {
         dalIs3++
     }
-    if (i % 5 == 0) {
+    if (i % 5 === 0) {
         dalIs5++
     }
-    if (i % 7 == 0) {
+    if (i % 7 === 0) {
         dalIs7++
     }
 }
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 3 yra ${dalIs3} vienetai.`)
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 5 yra ${dalIs5} vienetai.`)
-console.log(`Skaičių intervale tarp 0 ir 11, besidalijančių be liekanos iš 7 yra ${dalIs7} vienetai.`)
+console.log(`Skaičių intervale tarp -18 ir 18, besidalijančių be liekanos iš 3 yra ${dalIs3} vienetai.`)
+console.log(`Skaičių intervale tarp -18 ir 18, besidalijančių be liekanos iš 5 yra ${dalIs5} vienetai.`)
+console.log(`Skaičių intervale tarp -18 ir 18, besidalijančių be liekanos iš 7 yra ${dalIs7} vienetai.`)
 
 //Funkcijos
 
@@ -279,18 +282,40 @@ console.log(daugyba(kint3, kint2));
 console.log(daugyba(kint1, kint3));
 //3
 console.log("------------------------------------------")
-function skaitmenuKiekisSkaiciuje(kint) {
-    if (Number.isInteger(kint) !== true) {
-        return 'Pateikta netinkamo tipo reikšmė.';
-    }
-    const skaicius = kint.toString().length;
-    return skaicius;
 
+// function skaitmenuKiekisSkaiciuje(kint) {
+//     if (Number.isInteger(kint) !== true) {
+//         return 'Pateikta netinkamo tipo reikšmė.';
+//     }
+//     const skaicius = kint.toString().length;
+//     return skaicius;
+
+// }
+console.log('////////////////////////////////////////')
+function skaitmenuKiekisSkaiciuje(kint) {
+    if (typeof kint !== 'number') {
+        return "Pateikta netinkamo tipo reikšmė."
+    }
+    const n = kint + '';
+    if (!isFinite(n)) {
+        return "Pateiktas blogas skaicius"
+    }
+    let leng = n.length;
+    if (kint < 0) {
+        leng--;
+    }
+    if (kint % 1 !== 0) {
+        leng--;
+    }
+    return leng;
 }
 
 console.log(skaitmenuKiekisSkaiciuje(5));
+console.log(skaitmenuKiekisSkaiciuje(-5));
+console.log(skaitmenuKiekisSkaiciuje(5.11));
 console.log(skaitmenuKiekisSkaiciuje(781));
 console.log(skaitmenuKiekisSkaiciuje(37060123456));
+console.log(skaitmenuKiekisSkaiciuje(Infinity));
 console.log(skaitmenuKiekisSkaiciuje(true));
 console.log(skaitmenuKiekisSkaiciuje('asd'));
 console.log(skaitmenuKiekisSkaiciuje(NaN));
