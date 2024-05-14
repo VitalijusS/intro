@@ -289,7 +289,7 @@ console.log(dominator([11, 3313, 333, 4, 4, 4, 4, 11, 11, 11, 11, 11, 11]));
 console.clear();
 
 function dominator1(arr) {
-  const set = new Set(arr);
+
   const map1 = new Map(Array.from(arr, x => [x, 0]));
   for (i = 0; i < arr.length; i++) {
     const temp = map1.get(arr[i]);
@@ -365,3 +365,51 @@ console.log(sideLen(3, 4))
 console.log(sideLen(4, 6))
 console.log(sideLen(5, 12))
 console.log(sideLen(8, 10))
+
+function letterCheck(arr) {
+  const letters = arr[1];
+  let list = [];
+  for (i = 0; i < arr[0].length; i++) {
+    list.push(arr[0][i].toLowerCase())
+  }
+  for (i = 0; letters.length > i; i++) {
+    if (!list.includes(letters[i].toLowerCase())) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(letterCheck(['AAA', 'aaa']));
+console.log(letterCheck(['aaa', 'aaa']));
+console.log(letterCheck(['AAA', 'aaav']));
+
+function letterCount(s) {
+  const map = new Map(Array.from(s, x => [x, 0]));
+  for (i = 0; i < s.length; i++) {
+    const temp = map.get(s[i]);
+    map.set(s[i], temp + 1);
+  }
+  return Object.fromEntries(map);
+}
+console.log(letterCount("aaaaaaab"))
+console.log(letterCount("aaaaaaabaserfgehjkuiko"))
+
+function reduceByRules(numbers, rules) {
+  let index = 0;
+  let answer = numbers[0];
+
+  for (i = 0; numbers.length - 1 > i; i++) {
+    if (index === rules.length) {
+      index = 0;
+    }
+    console.log('index', index, 'ans', answer)
+    answer = rules[index++](answer, numbers[i + 1]);
+  }
+  return answer;
+}
+
+
+let rules = [(a, b) => a + b, (a, b) => a - b];
+console.log(reduceByRules([2, 2, 3, 4], rules))
+console.log(reduceByRules([1, 2.5, 3.7, 4.9], rules))

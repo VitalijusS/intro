@@ -7,6 +7,7 @@
     "string":"node --watch ./js/duomenys/string.js",
     "number":"node --watch ./js/duomenys/number.js",
     "methodNumber":"node --watch ./js/metodai/number.js",
+    "methodString":"node --watch ./js/metodai/string.js",
     "typeof":"node --watch ./js/duomenys/typeof.js",
     "for":"node --watch ./js/ciklai/for.js",
     "while":"node --watch ./js/ciklai/while.js",
@@ -18,6 +19,7 @@
     "cw":"node --watch ./js/hw/codeWars.js",
     "boolHM":"node --watch ./js/duomenys/booleanHM.js",
     "function":"node --watch ./js/funkcijos/function.js",
+    "polish":"node --watch ./js/random/polish.js",
     "index":"node --watch index.js"
   },
   "keywords": [],
