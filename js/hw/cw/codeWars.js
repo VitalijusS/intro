@@ -226,13 +226,6 @@ function asteriscIt(n) {
 console.log(asteriscIt(3513513554444))
 console.log(asteriscIt([35, 13, 5, 13, 5, 5, 4, 444]))
 
-console.clear();
-console.clear();
-console.clear();
-console.clear();
-console.clear();
-console.clear();
-console.clear();
 
 function validBraces(braces) {
   if (braces.split('(').length !== braces.split(')').length || braces.split('[').length !== braces.split(']').length || braces.split('{').length !== braces.split('}').length) {
@@ -286,7 +279,7 @@ console.log(dominator([1, 3, 3, 4, 4]));
 console.log(dominator([1, 3, 3, 4, 4, 4, 4]));
 console.log(dominator([11, 3313, 333, 4, 4, 4, 4, 11, 11, 11, 11, 11, 11]));
 
-console.clear();
+
 
 function dominator1(arr) {
 
@@ -413,3 +406,89 @@ function reduceByRules(numbers, rules) {
 let rules = [(a, b) => a + b, (a, b) => a - b];
 console.log(reduceByRules([2, 2, 3, 4], rules))
 console.log(reduceByRules([1, 2.5, 3.7, 4.9], rules))
+
+const searchArray = function (arrayToSearch, query) {
+  if (query.length !== 2) {
+    throw new Error('error');
+  }
+  if (!Array.isArray(query)) {
+    throw new Error('error');
+  }
+  for (i = 0; i < arrayToSearch.length; i++) {
+    if (!Array.isArray(arrayToSearch[i])) {
+      throw new Error('error');;
+    }
+    if (arrayToSearch[i].length !== 2) {
+      throw new Error('error');;
+    }
+    if (arrayToSearch[i].join() === query.join()) {
+      return i;
+    }
+  }
+  return -1;
+}
+let bigArray = [[2, 3], [7, 2], [9, 20], [1, 2], [7, 2], [45, 4], [7, 87], [4, 5], [2, 7], [6, 32]];
+let searchFor = [9, 20];
+console.log(searchArray(bigArray, searchFor), 2);
+searchFor = [1, 12];
+console.log(searchArray(bigArray, searchFor), -1);
+
+
+function findSummands(n) {
+  const nnn = n * n * n;
+  let list = [];
+  let ans = [];
+  let first = 1;
+  let sum = 0;
+  for (i = 1; list.length < n; i += 2) {
+    list.push(i);
+    sum += i
+  }
+  while (sum < nnn) {
+    sum += n * 2
+    first += 2;
+  }
+  if (sum === nnn) {
+    for (i = first; ans.length < n; i += 2) {
+      ans.push(i)
+    }
+    return ans;
+  }
+}
+
+console.log(findSummands(1));
+console.log(findSummands(2));
+console.log(findSummands(3));
+
+function rgb(r, g, b) {
+  r = verify(r);
+  b = verify(b);
+  g = verify(g);
+  return one(r) + one(g) + one(b);
+}
+
+function one(a) {
+  const hex = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+  let one = 0;
+  let two = 0;
+  for (i = 0; i < 16; i++) {
+
+    for (j = 0; j < 16; j++) {
+      if (a / 16 === i + j / 16) {
+        one = i;
+        two = j;
+        return hex[one] + hex[two];
+      }
+    }
+  }
+}
+function verify(a) {
+  if (a > 255) a = 255;
+  if (a < 0) a = 0;
+  return a.toFixed(0)
+}
+
+console.log(rgb(0, 0, 0), '--- 000000');
+console.log(rgb(0, 0, -20), '--- 000000');
+console.log(rgb(300, 255, 255), '--- FFFFFF');
+console.log(rgb(173, 255, 47), '--- ADFF2F');
