@@ -492,3 +492,89 @@ console.log(rgb(0, 0, 0), '--- 000000');
 console.log(rgb(0, 0, -20), '--- 000000');
 console.log(rgb(300, 255, 255), '--- FFFFFF');
 console.log(rgb(173, 255, 47), '--- ADFF2F');
+
+
+function generateHashtag(str) {
+  let first = str.split(' ');
+  let list = [];
+  for (i = 0; i < first.length; i++) {
+    list.push(((first[i] + '').trim().slice(0, 1).toUpperCase() + (first[i] + '').slice(1)))
+  }
+  const ans = "#" + list.join().replaceAll(',', '')
+  if (ans.length === 1 || ans.length > 140) {
+    return false;
+  }
+  return ans;
+}
+
+console.log(generateHashtag(''))
+console.log(generateHashtag('abswr   asdasd asda  '))
+console.log(generateHashtag('      asdioj    '))
+console.log(generateHashtag('   '))
+
+function zeros(n) {
+  let number = 5;
+  let count = 0;
+  while (number < n) {
+    count += parseInt(n / number);
+    number *= 5;
+  }
+  return count;
+}
+
+console.log(zeros(9999999999999999999999999));
+// function zeros(n) {
+//     let nnn = BigInt(1);
+//     let count = 0;
+//     for (i = 1; i <= n; i++) {
+//         nnn = BigInt(i) * nnn;
+//     }
+//     let string = nnn.toString();
+//     if (string.length <= 1) {
+//         return 0;
+//     }
+//     for (i = 0; i < string.length; i++) {
+//         if (string[string.length - 1 - i] !== '0') {
+//             break;
+//         } else {
+//             count++;
+//         }
+//     }
+//     return count;
+// }
+
+
+function incrementString(string) {
+  if (string[string.length - 1] != parseFloat(string[string.length - 1])) {
+    return string + 1;
+  }
+  let nums = '';
+  for (i = 0; i < string.length; i++) {
+    if (string[string.length - 1 - i] == parseFloat(string[string.length - 1 - i])) {
+      nums = string[string.length - 1 - i] + nums;
+    } else {
+      break
+    }
+  }
+  let nines = true;
+  const numsInt = parseFloat(nums)
+  for (i = 0; (numsInt + '').length > i; i++) {
+    if ((numsInt + '')[i] !== "9") {
+      nines = false;
+    }
+  }
+  if (nines && nums[0] === "0") {
+
+    string = string.slice(0, -((numsInt + '').length + 1))
+
+  } else {
+    string = string.slice(0, -(numsInt + '').length)
+  }
+  console.log(".........", string);
+  return string + (parseFloat(nums) + 1);
+}
+
+console.log(incrementString('foobar00999'))
+console.log(incrementString('fo99obar99'))
+console.log(incrementString('sdfawad999099'))
+

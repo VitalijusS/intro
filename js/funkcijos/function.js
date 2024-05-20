@@ -5,44 +5,44 @@ funkcijos
 
 */
 
-function pavadinimas(){
-    
+function pavadinimas() {
+
 }
 
 const a = pavadinimas();
 console.log(a);
 
-function empty(){
+function empty() {
     return undefined
 }
 empty();
 const b = empty();
 console.log(b, empty());
 
-function giveMeFive(){
+function giveMeFive() {
     return 5
 }
 console.log(giveMeFive());
 console.clear();
 
 
-function dauginti(vienas, du=1){
-    console.log(vienas*du)
+function dauginti(vienas, du = 1) {
+    console.log(vienas * du)
     return vienas * du
 
 }
 
 
-function sakinys(vardas, pavarde){
+function sakinys(vardas, pavarde) {
     return `Laba diena, as esu ${vardas} ${pavarde}!`
 }
-console.log(sakinys("Jonas","Jonaitis"))
+console.log(sakinys("Jonas", "Jonaitis"))
 
-dauginti(7,12)
-dauginti(55,111)
+dauginti(7, 12)
+dauginti(55, 111)
 dauginti(7)
 
-function like(name, age, thing){
+function like(name, age, thing) {
     return `Mano vardas yra ${name}, man ${age} metai ir as megstu ${thing}`
 }
 console.log(like("jonas", 99, "balionus"))
@@ -52,7 +52,7 @@ console.log(like("Petras", 77))
 
 console.clear();
 
-function price(value){
+function price(value) {
     const PVM = 1.21;
     return value * PVM
 }
@@ -60,8 +60,8 @@ console.log(price(99.99))
 
 let number = 0
 console.log(number)
-function add(){
-     return number ++
+function add() {
+    return number++
 }
 add();
 console.log(number);
@@ -73,12 +73,12 @@ add();
 
 
 console.clear()
-function isPangram(string){
+function isPangram(string) {
     const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    for (let i = 0; i < alphabet.length; i++){
+    for (let i = 0; i < alphabet.length; i++) {
         const stringLower = string.toLowerCase();
-        if (stringLower.includes(alphabet[i]) == false){
-            return false           
+        if (stringLower.includes(alphabet[i]) == false) {
+            return false
         }
     }
     return true
@@ -99,12 +99,12 @@ console.log(isPangram('Cwm fjord bank glyphs vext quiz'));
 console.clear();
 
 
-function squareDigits(num){
+function squareDigits(num) {
     let answer = "";
     const string = num.toString();
 
-    for (let i = 0; i < string.length; i++){
-        let singleNumber = parseInt(string.charAt(i))**2;
+    for (let i = 0; i < string.length; i++) {
+        let singleNumber = parseInt(string.charAt(i)) ** 2;
         answer += singleNumber.toString();
     }
     return answer
@@ -115,14 +115,14 @@ console.log(squareDigits(3212));
 
 console.clear();
 
-function name(name){
+function name(name) {
     return console.log(`Labas, ${name}`)
 }
 
 name("Elena")
 
 
-function simbol(text){
+function simbol(text) {
     return console.log(text.length)
 }
 
@@ -176,14 +176,18 @@ const markHigherBMI2 = mark2BMI > john2BMI;
 console.log(markHigherBMI)
 console.log(markHigherBMI2)
 
-if (mark1BMI > john1BMI){
+if (mark1BMI > john1BMI) {
     console.log(`Mark's BMI (${mark1BMI.toFixed(1)}) is higher than John's (${john1BMI.toFixed(1)})!`)
-}else{
+} else {
     console.log(`John's (${john1BMI.toFixed(1)}) is higher than Mark's BMI (${mark1BMI.toFixed(1)})!`)
 }
 
-if (mark2BMI > john2BMI){
+if (mark2BMI > john2BMI) {
     console.log(`Mark's BMI (${mark2BMI.toFixed(1)}) is higher than John's (${john2BMI.toFixed(1)})!`)
-}else{
+} else {
     console.log(`John's (${john2BMI.toFixed(1)}) is higher than Mark's BMI (${mark2BMI.toFixed(1)})!`)
 }
+
+
+
+console.clear();
