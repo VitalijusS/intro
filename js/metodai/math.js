@@ -29,10 +29,9 @@ console.log(Math.hypot(3, 4))// 3**2 + 4**2 = 5**2
 console.log(Math.imul(5, 9))// 5*9 32bit
 console.log(Math.max(5, -9, 0, 10))
 console.log(Math.min(5, -9, 0, 10))
-console.log('------------------')
-
 console.log(Math.pow(2, 5))//2**5
+console.log('------------------')
+console.log(Math.sign(-5))//arba -1 arba 1 (0=0, -0=-0)
+console.log(Math.sqrt(9))
+
 console.log(Math.random()) //[0...1)
-
-
-

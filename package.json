@@ -6,9 +6,11 @@
   "scripts": {
     "string":"node --watch ./js/duomenys/string.js",
     "number":"node --watch ./js/duomenys/number.js",
+    "object":"node --watch ./js/duomenys/object.js",
     "methodNumber":"node --watch ./js/metodai/number.js",
     "methodString":"node --watch ./js/metodai/string.js",
     "math":"node --watch ./js/metodai/math.js",
+    "math:random":"node --watch ./js/metodai/random.js",
     "typeof":"node --watch ./js/duomenys/typeof.js",
     "for":"node --watch ./js/ciklai/for.js",
     "while":"node --watch ./js/ciklai/while.js",
