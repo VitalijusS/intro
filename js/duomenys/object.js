@@ -35,3 +35,48 @@ function intro(studentData) {
 for (i = 0; i < students.length; i++) {
     console.log(intro(students[i]));
 }
+
+const stud4 = {
+    isMarried: true,
+    name: 'Petras',
+    age: 66,
+};
+
+console.log(stud4.name);
+console.log(stud4['name']);
+const key = 'name';
+console.log(stud4.key); // !!UNDEFINED 
+console.log(stud4[key]);
+console.clear();
+
+function giveMe(data, key) {
+    return data[key];
+}
+console.log(giveMe({ name: 'Jonas', age: 99 }, 'name'));
+console.log(giveMe({ name: 'Jonas', age: 99 }, 'age'));
+console.log(giveMe({ name: 'Jonas', age: 99 }, 'date'));
+console.clear();
+
+
+const sum = (a, b) => a + b;
+function diff(a, b) {
+    return a - b;
+}
+
+function calcObj(n1, operation, n2) {
+    const mathFunction = {
+        '+': sum,
+        '*': (a, b) => a * b,
+        '-': diff,
+        '/': (a, b) => a / b,
+        '**': (a, b) => a ** b,
+    }
+    return mathFunction[operation](n1, n2)
+}
+console.log(calcObj(7, '-', 5));
+console.log(calcObj(7, '+', 5));
+console.log(calcObj(7, '*', 5));
+console.log(calcObj(7, '/', 5));
+console.log(calcObj(7, '**', 5));
+
+

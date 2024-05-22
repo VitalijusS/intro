@@ -8,6 +8,7 @@
     "number":"node --watch ./js/duomenys/number.js",
     "object":"node --watch ./js/duomenys/object.js",
     "methodNumber":"node --watch ./js/metodai/number.js",
+    "spread":"node --watch ./js/metodai/spread.js",
     "methodString":"node --watch ./js/metodai/string.js",
     "math":"node --watch ./js/metodai/math.js",
     "math:random":"node --watch ./js/metodai/random.js",
