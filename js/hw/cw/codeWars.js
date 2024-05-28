@@ -578,3 +578,332 @@ console.log(incrementString('foobar00999'))
 console.log(incrementString('fo99obar99'))
 console.log(incrementString('sdfawad999099'))
 
+function dirReduc(arr) {
+  let string = arr.join(' ');
+  if (string.includes("NORTH SOUTH") || string.includes("SOUTH NORTH") ||
+    string.includes("WEST EAST") || string.includes("EAST WEST")) {
+    string = string.replaceAll("NORTH SOUTH", "")
+      .replaceAll("SOUTH NORTH", "")
+      .replaceAll("WEST EAST", "")
+      .replaceAll("EAST WEST", "");
+  } else {
+    return string.split(' ').filter(Boolean);
+  }
+  return dirReduc(string.split(' ').filter(Boolean));
+}
+
+console.log(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]));
+console.log()
+console.log(dirReduc(["NORTH", "WEST", "SOUTH", "EAST"]));
+console.log()
+console.log(dirReduc(["NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
+console.log(dirReduc(["NORTH", "NORTH", "NORTH", "SOUTH", "EAST", "WEST", "EAST", "WEST"]));
+
+function longestConsec(strarr, k) {
+  let answer = '';
+  let temp = '';
+  if (strarr.length > k) {
+    for (i = 0; i < strarr.length - k + 1; i++) {
+      for (index = 0; index < k; index++) {
+        temp += strarr[i + index]
+      }
+      if (temp.length > answer.length) {
+        answer = temp;
+      }
+      temp = '';
+    }
+  }
+  return answer;
+}
+console.log(longestConsec(["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], 2), '-->', "folingtrashy")
+console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2), '-->', "abigailtheta")
+
+// xdd
+// let ans = 0;
+// function postfixEvaluator(string) {
+//   let list = string.split(' ');
+//   if (list.length === 1) {
+//     return parseInt(list.join(' '))
+//   }
+//   if (!list.includes('+') && !list.includes('/') && !list.includes('*') && !list.includes('-')) {
+//     return ans;
+//   }
+//   for (i = 0; i < list.length; i++) {
+//     if (list[i] === '+') {
+//       ans = Math.round(list[i - 2]) + Math.round(list[i - 1]);
+//       const replace = list[i - 2] + ' ' + list[i - 1] + ' ' + '+';
+//       string = list.join(' ').replace(replace, ans);
+//       return postfixEvaluator(string);
+//     }
+//     if (list[i] === '*') {
+//       ans = Math.round(list[i - 1]) * Math.round(list[i - 2]);
+//       const replace = list[i - 2] + ' ' + list[i - 1] + ' ' + '*';
+//       string = list.filter(Boolean).join(' ').replace(replace, ans)
+//       return postfixEvaluator(string);
+//     }
+//     if (list[i] === '-') {
+//       ans = Math.round(list[i - 2]) - Math.round(list[i - 1]);
+//       const replace = list[i - 2] + ' ' + list[i - 1] + ' ' + '-';
+//       string = list.filter(Boolean).join(' ').replace(replace, ans)
+//       return postfixEvaluator(string);
+//     }
+//     if (list[i] === '/') {
+//       ans = Math.round(list[i - 2]) / Math.round(list[i - 1]);
+//       const replace = list[i - 2] + ' ' + list[i - 1] + ' ' + '/';
+//       string = list.filter(Boolean).join(' ').replace(replace, ans)
+//       return postfixEvaluator(string);
+//     }
+//   }
+// }
+
+
+// console.log(postfixEvaluator("2 3 +"), 5);
+// console.log(postfixEvaluator("20 40 + 60 *"), 3600);
+// console.log(postfixEvaluator('20 40 60 + *'), 2000);
+// console.log(postfixEvaluator('20 40 60 * *'));
+// console.log(postfixEvaluator('20 40 - 60 -'));
+// console.log(postfixEvaluator('2 3 9 4 / + *'));
+
+
+function spinWords(string) {
+  let ans = '';
+  const list = string.split(' ')
+  for (i = 0; i < list.length; i++) {
+    if (list[i].length >= 5) {
+      ans += (list[i].split('').reverse().join('')) + ' ';
+    } else {
+      ans += (list[i]) + ' ';
+    }
+  }
+  return ans.trim();
+}
+
+console.log(spinWords("Welcome"), "emocleW");
+console.log(spinWords("Hey fellow warriors"), "Hey wollef sroirraw");
+console.log(spinWords("This is a test"), "This is a test");
+
+
+function findOdd(A) {
+  let count = 0;
+  let current = null;
+  A = A.sort()
+  while (A.length !== 0) {
+    current = A[0];
+    count++;
+    A.shift();
+    if (!A.includes(current) && count % 2 !== 0) {
+      return current;
+    } else if (!A.includes(current)) {
+      count = 0;
+    }
+  }
+}
+
+console.log(findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]), 5);
+console.log(findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]), -1);
+console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]), 5);
+console.log(findOdd([10]), 10);
+console.log(findOdd([1, 1, 1, 1, 1, 1, 10, 1, 1, 1, 1]), 10);
+console.log(findOdd([5, 4, 3, 2, 1, 5, 4, 3, 2, 10, 10]), 1);
+
+function digitalRoot(n) {
+  let ans = 0;
+  let temp = 0;
+  let list = (n + '').split("").map(Number)
+  while (list.length > 1) {
+    for (i = 0; i < list.length; i++) {
+      temp += list[i];
+    }
+    list = (temp + '').split("").map(Number)
+    ans = temp;
+    temp = 0;
+  }
+  return ans;
+}
+
+console.log(digitalRoot(16), 7)
+console.log(digitalRoot(456), 6)
+
+
+function reverseWords(str) {
+  const list = str.split(' ');
+  let ans = [];
+  for (i = 0; i < list.length; i++) {
+    ans.push(list[i].split('').reverse().join(''));
+  }
+  return ans.join(' ')
+}
+
+console.log(reverseWords('The quick brown fox jumps over the lazy dog.'), 'ehT kciuq nworb xof spmuj revo eht yzal .god');
+console.log(reverseWords('apple'), 'elppa');
+console.log(reverseWords('a b c d'), 'a b c d');
+console.log(reverseWords('double  spaced  words'), 'elbuod  decaps  sdrow');
+
+function bouncingBall(h, bounce, window) {
+  if (h < 0 || bounce >= 1 || bounce < 0 || h < window) {
+    return -1;
+  }
+  count = 1;
+  h = h * bounce;
+  while (h > window) {
+    h = h * bounce;
+    count += 2;
+  }
+  return count;
+}
+
+console.log(bouncingBall(3.0, 0.66, 1.5), 3)
+console.log(bouncingBall(3.0, 1.0, 1.5), -1);
+console.log(bouncingBall(30.0, 0.66, 1.5), 15);
+
+
+function findOutlier(integers) {
+  let evenCount = 0;
+  let oddCount = 0;
+  let odd = null;
+  let even = null;
+  for (i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 === 0) {
+      evenCount++;
+      even = integers[i];
+    } else {
+      oddCount++;
+      odd = integers[i];
+    }
+  }
+  return evenCount === 1 ? even : odd;
+}
+function partsSums(ls) {
+  const length = ls.length;
+  let ans = [];
+  let num = 0;
+  for (i = 0; i < length; i++) {
+    num += ls[i];
+  }
+  for (i = 0; i < length; i++) {
+    ans.push(num)
+    num -= ls[i]
+  }
+  ans.push(0)
+  return ans;
+}
+
+console.log(partsSums([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+
+function atomicNumber(num) {
+  let sum = 0;
+  let ans = [];
+  let index = 1;
+  if (num <= 2) { return [num] }
+  while (sum <= num) {
+    if ((2 * (index ** 2)) + sum < num) {
+      ans.push(2 * (index ** 2));
+      sum += 2 * (index ** 2);
+      index++
+    } else {
+      ans.push(num - sum)
+      sum += num + sum;
+    }
+  }
+
+  return ans;
+}
+console.log(atomicNumber(1), [1], 'atomicNumber(10)')
+console.log(atomicNumber(10), [2, 8], 'atomicNumber(10)')
+console.log(atomicNumber(11), [2, 8, 1], 'atomicNumber(11)')
+console.log(atomicNumber(22), [2, 8, 12], 'atomicNumber(22)')
+console.log(atomicNumber(23), [2, 8, 13], 'atomicNumber(23)')
+console.log(atomicNumber(47), [2, 8, 18, 19], 'atomicNumber(47)')
+console.log(atomicNumber(50), [2, 8, 18, 22], 'atomicNumber(50)')
+console.log(atomicNumber(52), [2, 8, 18, 24], 'atomicNumber(52)')
+console.log(atomicNumber(60), [2, 8, 18, 32], 'atomicNumber(60)')
+console.log(atomicNumber(61), [2, 8, 18, 32, 1], 'atomicNumber(61)')
+
+function getBestWord(points, words) {
+  const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  let length = 0;
+  let maxPoints = 0;
+  let ans = 0;
+  for (i = 0; i < words.length; i++) {
+    let tempPoints = 0;
+    const currentWord = words[i];
+    for (j = 0; j < currentWord.length; j++) {
+      tempPoints += points[letters.indexOf(currentWord[j])];
+      if (tempPoints > maxPoints) {
+        maxPoints = tempPoints;
+        ans = i;
+        length = currentWord.length
+      }
+      if (tempPoints >= maxPoints && length > currentWord.length) {
+        maxPoints = tempPoints;
+        ans = i;
+        length = currentWord.length
+      }
+
+    }
+    tempPoints = 0;
+  }
+  return ans;
+}
+var points = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 10, 1, 2, 1, 1, 3, 8, 1, 1, 1, 1, 4, 10, 10, 10, 10];
+var simpleWords = ["WHO", "IS", "THE", "BEST", "OF", "US"];
+var rndmWords = ["NOQ", "TXAY", "S", "OM", "ESFT", "CJUKQ", "QL", "QO", "ASTK", "Y"];
+var firstBestWord = ["JGPCWVWFW", "JXHNKBJJG"];
+
+console.log(getBestWord(points, simpleWords), 0);
+console.log(getBestWord(points, rndmWords), 5);
+console.log(getBestWord(points, firstBestWord), 0);
+
+
+function nameInStr(str, name) {
+  str = str.toLowerCase();
+  name = name.toLowerCase();
+  for (i = 0; name.length > i; i++) {
+    if (!str.includes(name[i])) {
+      return false;
+    }
+    for (j = 0; j < str.length; j++) {
+      if (str[j] === name[i]) {
+        console.log(name, name[i], str)
+        str = str.slice(j + 1);
+        break;
+      }
+    }
+  }
+  return true;
+}
+
+
+console.log(nameInStr('Across the rivers', 'chris'), true)
+console.log(nameInStr('Next to a lake', 'chris'), false)
+console.log(nameInStr('Under a sea', 'chris'), false)
+console.log(nameInStr('A crew that boards the ship', 'chris'), false)
+console.log(nameInStr('A live son', 'Allison'), false)
+
+
+function hasArithmProg(arr) {
+  let start = Infinity;
+  if (arr.length < 3) {
+    return undefined;
+  }
+  for (i = 0; i < arr.length - 2; i++) {
+    if (arr[i + 1] - arr[i] === arr[i + 2] - arr[i + 1]) {
+      if (i < start) {
+        start = i;
+      }
+    }
+  }
+  if (start === 0) {
+    return true;
+  } else if (start === Infinity) {
+    return false;
+  } else {
+    return start;
+  }
+}
+
+console.log(hasArithmProg([9, 5, 1]), true);
+console.log(hasArithmProg([9, 1, 2, 14, 46]), false);
+console.log(hasArithmProg([90, 2, 4, 6, 8, 14]), 1);
+console.log(hasArithmProg([2, 10, 4, 6]), false)
+console.log(hasArithmProg([9, 1]), undefined);
