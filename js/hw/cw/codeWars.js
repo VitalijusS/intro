@@ -907,3 +907,21 @@ console.log(hasArithmProg([9, 1, 2, 14, 46]), false);
 console.log(hasArithmProg([90, 2, 4, 6, 8, 14]), 1);
 console.log(hasArithmProg([2, 10, 4, 6]), false)
 console.log(hasArithmProg([9, 1]), undefined);
+
+function isValidChess960(pieces) {
+  if (pieces.indexOf("B") % 2 === 0 && pieces.lastIndexOf("B") % 2 === 0 ||
+    pieces.indexOf("B") % 2 === 1 && pieces.lastIndexOf("B") % 2 === 1) {
+    return false;
+  }
+  if (pieces.indexOf('K') > pieces.indexOf('R') &&
+    pieces.indexOf('K') < pieces.lastIndexOf('R')) {
+    return true;
+  }
+  return false;
+}
+
+console.log(isValidChess960("RNBQKBNR"));
+console.log(isValidChess960("QNNBBRKR"));
+console.log(isValidChess960("QRNNBBRK"));
+console.log(isValidChess960("QNBNBRKR"));
+

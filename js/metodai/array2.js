@@ -90,3 +90,21 @@ students.sort(varduPalyginimas) //a-z
 console.log(students)
 students.sort((a, b) => a.name < b.name ? 1 : a.name > b.name ? -1 : 0) /// z-a
 console.log(students)
+
+
+const sum = array.reduce((tarpineSuma, item) => tarpineSuma + item, 0);
+console.log(sum);
+const sum2 = array.reduce((tarpineSuma, item) => tarpineSuma + item);
+console.log(sum2);
+const sum3 = array.reduce((tarpineSuma, item) => tarpineSuma + item, 1000);//1000pradine suma
+console.log(sum3);
+const dif = array.reduce((tarpineSuma, item) => tarpineSuma - item);
+console.log(dif);//1-2-3
+const dif2 = array.reduce((tarpineSuma, item) => tarpineSuma - item, 0);
+console.log(dif2);//0-1-2-3
+
+const dict = ['werf', 'edghrth', 'erthrhr', 'ergserthh0'];
+const symbolsInDict = dict.reduce((total, word) => total + word.length, 0);
+console.log(symbolsInDict);
+const firstLetters = dict.reduce((t, w) => t + w[0], 'Pirmos raides: ')
+console.log(firstLetters);

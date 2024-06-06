@@ -24,7 +24,6 @@
     "if":"node --watch ./js/palyginimas/if.js",
     "ternary":"node --watch ./js/palyginimas/ternary.js",
     "switch":"node --watch ./js/palyginimas/switch.js",
-    "mini":"node --watch ./js/hw/mini.js",
     "turboIndexOf":"node --watch ./js/hw/turboIndexOf.js",
     "test":"node --watch ./js/random/test.js",
     "test2":"node --watch ./js/random/test2.js",
@@ -35,6 +34,9 @@
     "function":"node --watch ./js/funkcijos/function.js",
     "arrow":"node --watch ./js/funkcijos/arrow.js",
     "polish":"node --watch ./js/hw/cw/polish.js",
+    "upperMet":"node --watch ./js/hw/cw/upperMet.js",
+    "mini":"node --watch ./js/hw/mini.js",
+    "mFor":"node --watch ./js/hw/mFor.js",
     "index":"node --watch index.js"
   },
   "keywords": [],
