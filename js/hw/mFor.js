@@ -150,17 +150,26 @@ function countS(arr) {
     let ans = 0
     for (i = 0; i < arr.length; i++) {
         for (let index = 0; index < arr[i].length; index++) {
-            if (arr[i][index] === 's') {
+            if (arr[i][index].toLowerCase() === 's') {
                 ans++;
             }
-
         }
     }
     return ans
 }
 console.log(countS(B))
-console.log('-------------')
 
+
+
+function countS2(arr) {
+    let ans = 0;
+    for (i = 0; i < arr.length; i++) {
+        ans += arr[i].split('').filter((a) => a.toLowerCase() === 's').length;
+    }
+    return ans
+}
+console.log(countS2(B))
+console.log('-------------')
 
 // Suskaičiuoti kiek masyve yra raidžių (tarpų tarp žodžių neskaičiuoti!);
 function countLetters(arr) {
@@ -176,14 +185,21 @@ function countLetters(arr) {
     return ans
 }
 console.log(countLetters(B))
-console.log('-------------')
 
 function countLetters2(arr) {
     let ans = 0
     for (i = 0; i < arr.length; i++) {
+        ans += arr[i].replaceAll(' ', '').length
+    }
+    return ans
+}
+console.log(countLetters2(B))
+
+function countLetters3(arr) {
+    let ans = 0
+    for (i = 0; i < arr.length; i++) {
         for (let index = 0; index < arr[i].length; index++) {
-            let regex = /^[a-zA-Z]+$/;
-            if (regex.test(arr[i][index])) {
+            if ((/[a-zA-Z]/g).test(arr[i][index])) {
                 ans++;
             }
 
@@ -191,11 +207,27 @@ function countLetters2(arr) {
     }
     return ans
 }
-console.log(countLetters2(B))
+console.log(countLetters3(B))
+
+
+function countLetters4(arr) {
+    let ans = 0
+    const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    for (i = 0; i < arr.length; i++) {
+        for (let index = 0; index < arr[i].length; index++) {
+            if (ABC.includes(arr[i][index].toUpperCase())) {
+                ans++;
+            }
+
+        }
+    }
+    return ans
+}
+console.log(countLetters4(B))
 console.log('-------------')
 
 
-// Surasti ilgiausią žodį (ne stringą, o atskirą stringo žodį!);
+// Surasti ilgiausią žodį (ne stringąo atskirą stringo žodį!);
 function longestWord(arr) {
     let ans = ''
     for (i = 0; i < arr.length; i++) {
@@ -211,3 +243,5 @@ function longestWord(arr) {
 }
 console.log(longestWord(B))
 console.log('-------------')
+
+

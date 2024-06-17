@@ -925,3 +925,222 @@ console.log(isValidChess960("QNNBBRKR"));
 console.log(isValidChess960("QRNNBBRK"));
 console.log(isValidChess960("QNBNBRKR"));
 
+function bigToSmall(arr) {
+  return [].concat(...arr).sort((a, b) => b - a).join('>');
+}
+console.log(bigToSmall([[1, 2], [3, 4], [5, 6]]), "6>5>4>3>2>1");
+console.log(bigToSmall([[1, 3, 5], [2, 4, 6]]), "6>5>4>3>2>1");
+console.log(bigToSmall([[1, 1], [1], [1, 1]]), "1>1>1>1>1");
+
+// function person(firstName, lastName, age, gender, employed, occupation, married) {
+//   return {
+//     firstName: firstName,
+//     lastName: lastName,
+//     age: age,
+//     gender: gender,
+//     employed: employed,
+//     occupation: occupation,
+//     married: married,
+//     sayName() {
+//       return firstName + ' ' + lastName
+//     },
+//     introduce() {
+//       return `Hello, my name is ${firstName} ${lastName}.  I am ${age} years old.  I am a ${gender}.`
+//     }
+//   }
+// }
+// describe("Your factory function", () => {
+//   it("should instantiate an object properly with the given parameters", () => {
+//     var john = person("John", "Doe", 18, "male", false, null, true);
+//     Test.assertEquals(john.firstName, "John");
+//     Test.assertEquals(john.lastName, "Doe");
+//     Test.assertEquals(john.age, 18);
+//     Test.assertEquals(john.gender, "male");
+//     Test.assertEquals(john.employed, false);
+//     Test.assertEquals(john.occupation, null);
+//     Test.assertEquals(john.married, true);
+//     Test.assertEquals(john.sayName(), "John Doe");
+//     Test.assertEquals(john.introduce(), "Hello, my name is John Doe.  I am 18 years old.  I am a male.");
+//     var cathy = person("Cathy", "Destexhe", 16, "female", true, "Designer", false);
+//     Test.assertEquals(cathy.firstName, "Cathy");
+//     Test.assertEquals(cathy.lastName, "Destexhe");
+//     Test.assertEquals(cathy.age, 16);
+//     Test.assertEquals(cathy.gender, "female");
+//     Test.assertEquals(cathy.employed, true);
+//     Test.assertEquals(cathy.occupation, "Designer");
+//     Test.assertEquals(cathy.married, false);
+//     Test.assertEquals(cathy.sayName(), "Cathy Destexhe");
+//     Test.assertEquals(cathy.introduce(), "Hello, my name is Cathy Destexhe.  I am 16 years old.  I am a female.");
+//   });
+// });
+
+
+// function constructionWorker(firstName, lastName, age, gender, married, boss) {
+//   const obj = person(firstName, lastName, age, gender, boss)
+//   obj.employed = true;
+//   obj.boss = boss;
+//   obj.married = married;
+//   obj.occupation = "construction worker";
+//   obj.sayBossName = a => `My boss is called ${boss} and is a very nice person!`
+//   return obj
+// }
+
+//     var alfie = constructionWorker("Alfie", "Ching", 13, "Male", false, "Ethan");
+//     Test.assertEquals(alfie.firstName, "Alfie");
+//     Test.assertEquals(alfie.lastName, "Ching");
+//     Test.assertEquals(alfie.age, 13);
+//     Test.assertEquals(alfie.gender, "Male");
+//     Test.assertEquals(alfie.employed, true);
+//     Test.assertEquals(alfie.occupation, "construction worker");
+//     Test.assertEquals(alfie.married, false);
+//     Test.assertEquals(alfie.boss, "Ethan");
+//     Test.assertEquals(alfie.sayName(), "Alfie Ching");
+//     Test.assertEquals(alfie.introduce(), "Hello, my name is Alfie Ching.  I am 13 years old.  I am a Male.");
+//     Test.assertEquals(alfie.sayBossName(), "My boss is called Ethan and is a very nice person!");
+
+
+function deal(n) {
+  let deck = [...DECK];
+  let state = (n * 214013 + 2531011) % 2 ** 31
+  const finalDeck = [];
+  while (deck.length > 1) {
+    let randMod = Number.parseInt(state / 2 ** 16) % deck.length;
+    let randCard = deck[randMod]
+    finalDeck.push(randCard);
+    deck = deck.join('.').replace(randCard, deck[deck.length - 1]).slice(0, -3).split('.')
+    state = (state * 214013 + 2531011) % 2 ** 31;
+
+  }
+  finalDeck.push(deck[0])
+  return finalDeck;
+
+}
+// function arrange(strng) {
+//   const list = strng.split(' ');
+//   let index = 0;
+//   let placeHolder = '';
+//   repeat(list);
+//   function repeat(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       if (index % 2 === 0 && arr[i].length > arr[i + 1].length) {
+//         placeHolder = arr[i];
+//         arr[i] = arr[i + 1];
+//         arr[i + 1] = placeHolder;
+//         index = 0;
+//         return repeat(arr)
+//       }
+//       if (index % 2 === 1 && arr[i].length < arr[i + 1].length) {
+//         placeHolder = arr[i];
+//         arr[i] = arr[i + 1];
+//         arr[i + 1] = placeHolder;
+//         index = 0;
+//         return repeat(arr);
+//       }
+//       index++
+//     }
+//     return list;
+//   }
+
+//   return list.map((a, b) => b % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join(' ');
+// }
+
+// function arrange(strng) {
+//   const list = strng.split(' ');
+//   let placeHolder = '';
+//   repeat(list);
+//   function repeat(arr) {
+//     for (let i = 0; i < arr.length - 1; i++) {
+//       if ((i % 2 === 0 && arr[i].length > arr[i + 1].length) ||
+//         (i % 2 === 1 && arr[i].length < arr[i + 1].length)) {
+//         placeHolder = arr[i];
+//         arr[i] = arr[i + 1];
+//         arr[i + 1] = placeHolder;
+//         return repeat(arr)
+//       }
+//     }
+//     return list;
+//   }
+
+//   return list.map((a, b) => b % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join(' ');
+// }
+
+function arrange(strng) {
+  const list = strng.split(' ');
+  let placeHolder = '';
+  for (let i = 0; i < list.length - 1; i++) {
+    if ((i % 2 === 0 && list[i].length > list[i + 1].length) ||
+      (i % 2 === 1 && list[i].length < list[i + 1].length)) {
+      placeHolder = list[i];
+      list[i] = list[i + 1];
+      list[i + 1] = placeHolder;
+    }
+  }
+  return list.map((a, b) => b % 2 === 0 ? a.toLowerCase() : a.toUpperCase()).join(' ');
+}
+
+console.log(arrange("who hit retaining The That a we taken"), "who RETAINING hit THAT a THE we TAKEN"); // 3
+console.log(arrange("on I came up were so grandmothers"), "i CAME on WERE up GRANDMOTHERS so"); // 4
+console.log(arrange("way the my wall them him"), "way THE my WALL him THEM"); // 1
+console.log(arrange("turn know great-aunts aunt look A to back"), "turn GREAT-AUNTS know AUNT a LOOK to BACK"); // 2
+
+Array.prototype.sameStructureAs = function (other) {
+  let isSame = true;
+  if (Array.isArray(this) !== Array.isArray(other) || this.length !== other.length) {
+    return (false)
+  }
+  function checkIfArray(arrThis, arrOther) {
+    for (let i = 0; i < arrThis.length; i++) {
+      if (Array.isArray(arrThis[i]) || Array.isArray(arrOther[i])) {
+        checkIfSame(arrThis[i], arrOther[i])
+      }
+    }
+    return;
+  }
+  function checkIfSame(arrThis, arrOther) {
+    if (Array.isArray(arrThis) !== Array.isArray(arrOther) || arrThis.length !== arrOther.length) {
+      isSame = false;
+      return;
+    }
+    checkIfArray(arrThis, arrOther)
+    return;
+  }
+  checkIfArray(this, other)
+  return isSame
+};
+
+console.log([1, 1, 1].sameStructureAs([2, 2, 2]));
+console.log([1, [1, 1]].sameStructureAs([2, [2, 2]]));
+console.log([[[], []]].sameStructureAs([[[], []]]));
+console.log([1, [[[1]]]].sameStructureAs([2, [[[2]]]]));
+console.log([1, '[', ']'].sameStructureAs(['[', ']', 1]));
+
+console.log([1, [1, 1]].sameStructureAs([2, [2]]));
+console.log([1, [1, 1]].sameStructureAs([[2, 2], 2]));
+console.log([[[], []]].sameStructureAs([[1, 1]]));
+console.log([].sameStructureAs(1));
+console.log([].sameStructureAs({}));
+console.log([1, 2].sameStructureAs([[3], 3]));
+
+function sortMe(arr) {
+  const letters = [...arr].map(a => Number.isInteger(a) ? (a + '')[(a + '').length - 1] : a[a.length - 1]).sort()
+  const ans = [];
+  for (let i = 0; i < letters.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (letters[i] === (arr[j] + '')[(arr[j] + '').length - 1]) {
+        ans.push(arr[j]);
+        arr.splice(arr.indexOf(arr[j]), 1)
+        break;
+      }
+    }
+  }
+  return ans;
+}
+
+console.log(sortMe(["asdf", 14, "13", "asdf"]), ["13", 14, "asdf", "asdf"]);
+console.log(sortMe(["xxxf", "aaaf", "kf", "f", "ooooof"]), ["xxxf", "aaaf", "kf", "f", "ooooof"]);
+console.log(sortMe(["xdxf", "xcxf", "xbxf", "xaxf"]), ["xdxf", "xcxf", "xbxf", "xaxf"]);
+console.log(sortMe(["xdxf", "xcxa", "xbxf", "xaxf"]), ["xcxa", "xdxf", "xbxf", "xaxf"]);
+
+
+
+
